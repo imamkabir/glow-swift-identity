@@ -46,7 +46,7 @@ const Navigation = () => {
               </Link>
             ))}
             <Link
-              to="/login"
+              to="/get-started"
               className="neon-button-cyan px-6 py-2 rounded-lg text-sm font-medium"
             >
               Get Started
@@ -81,7 +81,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <Link
-                to="/login"
+                to="/get-started"
                 onClick={() => setIsOpen(false)}
                 className="neon-button-cyan px-6 py-2 rounded-lg text-sm font-medium text-center"
               >
