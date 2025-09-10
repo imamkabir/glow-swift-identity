@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neon Tech Enterprises Design System */
+
+@layer base {
+  :root {
+    /* Core Neon Colors (HSL) */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    
+    /* Neon Accents */
+    --neon-cyan: 194 100% 50%;
+    --neon-magenta: 300 100% 50%;
+    --neon-purple: 270 100% 50%;
+    --neon-green: 120 100% 50%;
+    
+    /* Glass Morphism */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 0 0% 0% / 0.5;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(194 100% 50% / 0.1));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)), hsl(0 0% 100% / 0.02));
+    
+    /* Shadows & Glows */
+    --glow-cyan: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+    --glow-magenta: 0 0 20px hsl(var(--neon-magenta) / 0.5), 0 0 40px hsl(var(--neon-magenta) / 0.3);
+    --glow-purple: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-purple) / 0.3);
+    --glow-green: 0 0 20px hsl(var(--neon-green) / 0.5), 0 0 40px hsl(var(--neon-green) / 0.3);
+    
+    /* Semantic Tokens */
+    --primary: 194 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 270 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --card: 0 0% 100% / 0.05;
+    --card-foreground: 0 0% 100%;
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 194 100% 50%;
+    
+    --radius: 1rem;
+    
+    /* Animation Properties */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    background: radial-gradient(ellipse at center, hsl(194 100% 50% / 0.05) 0%, hsl(var(--background)) 70%);
+    min-height: 100vh;
+  }
+
+  /* Neon Text Effects */
+  .neon-text {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+  
+  .neon-text-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: var(--glow-cyan);
+  }
+  
+  .neon-text-magenta {
+    color: hsl(var(--neon-magenta));
+    text-shadow: var(--glow-magenta);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor, 0 0 80px currentColor;
+  }
+
+  /* Glass Morphism */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow));
+  }
+  
+  /* Neon Buttons */
+  .neon-button-cyan {
+    background: transparent;
+    border: 2px solid hsl(var(--neon-cyan));
+    color: hsl(var(--neon-cyan));
+    box-shadow: var(--glow-cyan);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-button-cyan:hover {
+    background: hsl(var(--neon-cyan));
+    color: hsl(var(--background));
+    box-shadow: var(--glow-cyan), inset 0 0 20px hsl(var(--neon-cyan) / 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .neon-button-magenta {
+    background: transparent;
+    border: 2px solid hsl(var(--neon-magenta));
+    color: hsl(var(--neon-magenta));
+    box-shadow: var(--glow-magenta);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-button-magenta:hover {
+    background: hsl(var(--neon-magenta));
+    color: hsl(var(--background));
+    box-shadow: var(--glow-magenta), inset 0 0 20px hsl(var(--neon-magenta) / 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .neon-button-green {
+    background: transparent;
+    border: 2px solid hsl(var(--neon-green));
+    color: hsl(var(--neon-green));
+    box-shadow: var(--glow-green);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-button-green:hover {
+    background: hsl(var(--neon-green));
+    color: hsl(var(--background));
+    box-shadow: var(--glow-green), inset 0 0 20px hsl(var(--neon-green) / 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .neon-button-purple {
+    background: transparent;
+    border: 2px solid hsl(var(--neon-purple));
+    color: hsl(var(--neon-purple));
+    box-shadow: var(--glow-purple);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-button-purple:hover {
+    background: hsl(var(--neon-purple));
+    color: hsl(var(--background));
+    box-shadow: var(--glow-purple), inset 0 0 20px hsl(var(--neon-purple) / 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Neon Input Fields */
+  .neon-input {
+    background: hsl(var(--glass-bg));
+    border: 2px solid hsl(var(--glass-border));
+    color: hsl(var(--foreground));
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-input:focus {
+    outline: none;
+    border-color: hsl(var(--neon-cyan));
+    box-shadow: var(--glow-cyan);
+  }
+
+  /* 3D Card Effects */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: var(--transition-smooth);
+  }
+  
+  .card-3d:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Glow Pulse Animation */
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: var(--glow-cyan); }
+    50% { box-shadow: var(--glow-cyan), 0 0 60px hsl(var(--neon-cyan) / 0.6); }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Slide In Animations */
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-in-up {
+    animation: slide-in-up 0.8s ease-out forwards;
+  }
+
+  /* Fade In Animation */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+}
