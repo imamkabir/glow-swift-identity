@@ -12,6 +12,34 @@ const ChatBot = () => {
     },
   ]);
 
+  const getIntelligentResponse = (userMessage: string) => {
+    const msg = userMessage.toLowerCase();
+    
+    if (msg.includes('about') || msg.includes('neon tech') || msg.includes('company')) {
+      return "Neon Tech Enterprises is not just a company — it's a movement! We revolutionize digital identity by getting anyone from startup founders to government agencies online in under 48 hours. Founded in Nigeria in 2025, we're expanding globally with our futuristic approach combining AI, blockchain, and quantum computing. Our mission: make digital transformation fast, affordable, and unforgettable! 🚀";
+    }
+    if (msg.includes('services') || msg.includes('what do you do')) {
+      return "We offer 3 revolutionary services: 🌍 Website Blueprints (48-hour websites), 🛡️ Cybersecurity (AI-powered protection), and 🔐 Digital Fingerprints (blockchain identity). From ₦30k-₦100k, we deliver professional, secure, and lightning-fast solutions!";
+    }
+    if (msg.includes('price') || msg.includes('cost') || msg.includes('how much')) {
+      return "Our prices are incredibly affordable: ₦30,000 - ₦100,000 depending on your needs. That includes everything: design, development, hosting, security, and a dashboard so easy even a baby can use it! 💰";
+    }
+    if (msg.includes('time') || msg.includes('how long') || msg.includes('48 hours')) {
+      return "48 hours or LESS! That's our guarantee. We're not just fast - we're revolutionary. Most companies take weeks or months, but we've perfected the art of rapid digital transformation without compromising quality! ⚡";
+    }
+    if (msg.includes('contact') || msg.includes('phone') || msg.includes('email')) {
+      return "Contact us instantly! 📱 WhatsApp: 09039500022 | 📧 Email: imamkabir397@gmail.com | 🐦 Twitter & 📸 Instagram: @neontech | We respond in under 2 hours, every single day!";
+    }
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+      return "Hello! Welcome to Neon Tech Enterprises! 🌟 I'm your AI assistant, ready to help you transform your digital presence. Whether you need a website, cybersecurity, or digital identity solutions - I've got you covered! What can I help you with today?";
+    }
+    if (msg.includes('founder') || msg.includes('team') || msg.includes('who')) {
+      return "We're a revolutionary team of digital innovators based in Lagos, Nigeria, but operating globally! Our founders are visionaries who believe anyone deserves a stunning digital presence in 48 hours. We're not just developers - we're dream makers! 🌍✨";
+    }
+    
+    return "I'm here to help with anything about Neon Tech! Ask me about our services, pricing, timeline, or how we can transform your business in 48 hours. What specific information do you need? 🚀";
+  };
+
   const handleSendMessage = () => {
     if (!message.trim()) return;
 
@@ -22,17 +50,18 @@ const ChatBot = () => {
     };
 
     setMessages(prev => [...prev, newMessage]);
+    const currentMessage = message;
     setMessage('');
 
-    // Simulate bot response
+    // Intelligent bot response
     setTimeout(() => {
       const botResponse = {
         type: 'bot',
-        content: 'Thanks for your message! Our team will get back to you within 48 hours. In the meantime, feel free to explore our services.',
+        content: getIntelligentResponse(currentMessage),
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, botResponse]);
-    }, 1000);
+    }, 800);
   };
 
   return (

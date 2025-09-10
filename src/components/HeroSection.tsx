@@ -23,32 +23,55 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        {/* Logo Animation */}
+        {/* Enhanced Logo Animation */}
         <div className={`mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="flex items-center justify-center">
-            <svg className="w-48 h-32" viewBox="0 0 400 200" fill="none">
-              {/* Stylized N with speed lines */}
-              <g>
-                {/* Speed lines */}
-                <rect x="20" y="60" width="25" height="4" fill="white" className="opacity-90"/>
-                <rect x="20" y="70" width="20" height="4" fill="white" className="opacity-80"/>
-                <rect x="20" y="80" width="30" height="4" fill="white" className="opacity-85"/>
-                <rect x="20" y="90" width="22" height="4" fill="white" className="opacity-75"/>
-                <rect x="20" y="100" width="28" height="4" fill="white" className="opacity-95"/>
-                <rect x="20" y="110" width="18" height="4" fill="white" className="opacity-70"/>
-                <rect x="20" y="120" width="26" height="4" fill="white" className="opacity-88"/>
-                
-                {/* Main N letter */}
-                <path d="M70 50 L90 50 L90 150 L70 150 Z" fill="white"/>
-                <path d="M70 50 L140 130 L140 50 L160 50 L160 150 L140 150 L70 70 L70 150 L50 150 L50 50 Z" fill="white"/>
+            <svg className="w-64 h-40" viewBox="0 0 400 200" fill="none">
+              {/* Animated Speed Lines */}
+              <g className="animate-pulse">
+                <rect x="20" y="60" width="25" height="4" fill="url(#gradient1)" className="opacity-90"/>
+                <rect x="20" y="70" width="20" height="4" fill="url(#gradient1)" className="opacity-80"/>
+                <rect x="20" y="80" width="30" height="4" fill="url(#gradient1)" className="opacity-85"/>
+                <rect x="20" y="90" width="22" height="4" fill="url(#gradient1)" className="opacity-75"/>
+                <rect x="20" y="100" width="28" height="4" fill="url(#gradient1)" className="opacity-95"/>
+                <rect x="20" y="110" width="18" height="4" fill="url(#gradient1)" className="opacity-70"/>
+                <rect x="20" y="120" width="26" height="4" fill="url(#gradient1)" className="opacity-88"/>
               </g>
               
-              {/* NEON TECH text */}
-              <text x="200" y="85" className="fill-white font-orbitron text-2xl font-bold tracking-wider">NEON</text>
-              <text x="200" y="115" className="fill-white font-orbitron text-2xl font-bold tracking-wider">TECH</text>
+              {/* Enhanced N Letter with Glow */}
+              <g filter="url(#glow)">
+                <path d="M70 50 L90 50 L90 150 L70 150 Z" fill="url(#neonGradient)"/>
+                <path d="M70 50 L140 130 L140 50 L160 50 L160 150 L140 150 L70 70 L70 150 L50 150 L50 50 Z" fill="url(#neonGradient)"/>
+              </g>
               
-              {/* ENTERPRISES text */}
-              <text x="200" y="140" className="fill-white font-orbitron text-sm font-normal tracking-widest opacity-90">ENTERPRISES</text>
+              {/* Enhanced Text with Gradients */}
+              <text x="200" y="85" className="font-orbitron text-2xl font-bold tracking-wider" fill="url(#textGradient)">NEON</text>
+              <text x="200" y="115" className="font-orbitron text-2xl font-bold tracking-wider" fill="url(#textGradient)">TECH</text>
+              <text x="200" y="140" className="font-orbitron text-sm font-normal tracking-widest" fill="url(#textGradient)" opacity="0.9">ENTERPRISES</text>
+              
+              {/* Gradient Definitions */}
+              <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="hsl(194, 100%, 50%)" />
+                  <stop offset="100%" stopColor="hsl(300, 100%, 50%)" />
+                </linearGradient>
+                <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="hsl(194, 100%, 70%)" />
+                  <stop offset="50%" stopColor="hsl(300, 100%, 70%)" />
+                  <stop offset="100%" stopColor="hsl(270, 100%, 70%)" />
+                </linearGradient>
+                <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="white" />
+                  <stop offset="100%" stopColor="hsl(194, 100%, 80%)" />
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge> 
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
             </svg>
           </div>
         </div>

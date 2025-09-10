@@ -17,16 +17,16 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-neon-cyan to-neon-magenta rounded-lg flex items-center justify-center">
-              <span className="text-background font-orbitron font-bold text-lg">N</span>
+          {/* Enhanced Logo */}
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-magenta rounded-xl flex items-center justify-center animate-glow-pulse group-hover:animate-spin transition-all duration-300">
+              <span className="text-background font-orbitron font-bold text-xl">N</span>
             </div>
-            <div>
-              <h1 className="text-xl font-orbitron font-bold neon-text-cyan">
+            <div className="hidden md:block">
+              <h1 className="text-xl font-orbitron font-bold neon-text-cyan group-hover:text-glow transition-all">
                 NEON TECH
               </h1>
-              <p className="text-xs text-gray-400 -mt-1">ENTERPRISES</p>
+              <p className="text-xs text-gray-400 -mt-1 tracking-widest">ENTERPRISES</p>
             </div>
           </Link>
 
